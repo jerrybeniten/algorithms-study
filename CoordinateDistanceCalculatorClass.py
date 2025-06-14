@@ -42,6 +42,7 @@ class CoordinateDistanceCalculator:
 
         return self.EARTHS_RADIUS_KM * centralAngle
 
+# Class usage.
 calculator = CoordinateDistanceCalculator(
     121.1535742,
     14.5232706,
