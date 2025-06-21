@@ -4,11 +4,13 @@ from arraySet import arraySet
 start_time = time.time()
 
 def insertionSort(itemsToSort: list[int]) -> list[int]:
+
+    INCREMENTOR_DECRIMENTOR = 1
     selector = 1    
     totalItemCount = len(itemsToSort)
     while selector < totalItemCount:
         
-        toCompare = selector - 1
+        toCompare = selector - INCREMENTOR_DECRIMENTOR
         comparedValue = itemsToSort[toCompare]
         selectedValue = itemsToSort[selector]
         
@@ -17,13 +19,13 @@ def insertionSort(itemsToSort: list[int]) -> list[int]:
             itemsToSort[selector] = comparedValue
 
             if selector == 1:
-                selector += 1
+                selector += INCREMENTOR_DECRIMENTOR
             
             if selector > 1:
-                selector -= 1
+                selector -= INCREMENTOR_DECRIMENTOR
 
         if comparedValue < selectedValue or comparedValue == selectedValue:
-            selector += 1        
+            selector += INCREMENTOR_DECRIMENTOR        
 
     return itemsToSort
 
