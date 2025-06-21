@@ -1,3 +1,8 @@
+import time
+from arraySet import arraySet
+
+start_time = time.time()
+
 def sort(numbers: list[int], orderBy: str = 'ASC') -> None:
 
     INSTANCE_TO_AVOID = 1
@@ -30,5 +35,10 @@ def sort(numbers: list[int], orderBy: str = 'ASC') -> None:
         rank = 0
     return sortedResult
 
-result = sort([200,200,31,41,200,59,26,41,58,15,200,15], 'DESC')
+result = sort(arraySet, 'ASC')
 print(result)
+
+end_time = time.time()
+
+execution_time = end_time - start_time
+print(f"Execution time: {execution_time:.4f} seconds")
