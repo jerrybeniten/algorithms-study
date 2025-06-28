@@ -1,5 +1,5 @@
 import time
-from arraySmallSet import arraySmallSet
+from arrayMediumSet import arrayMediumSet
 
 start_time = time.time()
 
@@ -37,10 +37,10 @@ def sort(numbers: list[int], orderBy: str = 'ASC') -> None:
         print(sortedResult)  
     return sortedResult
 
-result = sort(arraySmallSet, 'ASC')
-print(result)
+result = sort(arrayMediumSet, 'ASC')
+print('Sort: RANKING')
+print('Output: \t', result)
 
 end_time = time.time()
-
 execution_time = end_time - start_time
 print(f"Execution time: {execution_time:.4f} seconds")

@@ -1,5 +1,5 @@
 import time
-from arraySmallSet import arraySmallSet
+from arrayMediumSet import arrayMediumSet
 
 start_time = time.time()
 
@@ -31,10 +31,10 @@ def insertionSort(itemsToSort: list[int]) -> list[int]:
 
     return itemsToSort
 
-result = insertionSort(arraySmallSet)
-print(result)
+result = insertionSort(arrayMediumSet)
+print('Sort: INSERTITION')
+print('Output: \t', result)
 
 end_time = time.time()
-
 execution_time = end_time - start_time
 print(f"Execution time: {execution_time:.4f} seconds")
