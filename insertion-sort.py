@@ -1,5 +1,5 @@
 import time
-from arraySet import arraySet
+from arraySmallSet import arraySmallSet
 
 start_time = time.time()
 
@@ -25,11 +25,13 @@ def insertionSort(itemsToSort: list[int]) -> list[int]:
                 selector -= INCREMENTOR_DECRIMENTOR
 
         if comparedValue < selectedValue or comparedValue == selectedValue:
-            selector += INCREMENTOR_DECRIMENTOR        
+            selector += INCREMENTOR_DECRIMENTOR
+
+        print(itemsToSort)  
 
     return itemsToSort
 
-result = insertionSort(arraySet)
+result = insertionSort(arraySmallSet)
 print(result)
 
 end_time = time.time()

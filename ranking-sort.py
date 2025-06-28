@@ -1,5 +1,5 @@
 import time
-from arraySet import arraySet
+from arraySmallSet import arraySmallSet
 
 start_time = time.time()
 
@@ -31,11 +31,13 @@ def sort(numbers: list[int], orderBy: str = 'ASC') -> None:
             rank -= 1
         
         sortedResult[rank] = iteratedNumber                
-            
+                
         rank = 0
+
+        print(sortedResult)  
     return sortedResult
 
-result = sort(arraySet, 'ASC')
+result = sort(arraySmallSet, 'ASC')
 print(result)
 
 end_time = time.time()
