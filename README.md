@@ -11,6 +11,7 @@ A collection of sorting algorithm implementations and benchmarks focused on perf
 | 🫧 **Bubble Sort**     | ⏱️ 21.69 seconds                    |
 | 🪛 **Insertion Sort**  | ⏱️ 44.37 seconds *(slower than Bubble)* |
 | 🏁 **Ranking Sort**    | ⚡ 0.23 seconds *(very fast)*         |
+| 🏁 **Python Sort sorted()**    | ⚡ 0.003 seconds *(ultra fast)*         |
 
 ---
 
