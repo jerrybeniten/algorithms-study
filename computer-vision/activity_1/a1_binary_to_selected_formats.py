@@ -2,22 +2,19 @@ import cv2
 import numpy as np
 import os
 
-# Create a binary image (black/white)
-binary_img = np.zeros((200, 200), dtype=np.uint8)
-binary_img[50:150, 50:150] = 255  # white square
+# Step 1: Create or load a binary image (black & white only)
+# Here I create a sample 256x256 binary image with a simple pattern
+binary_img = np.zeros((256, 256), dtype=np.uint8)
+binary_img[::2, ::2] = 255  # Checkerboard pattern
+binary_img[1::2, 1::2] = 255
 
-cv2.imwrite("binary.jpg", binary_img)
-cv2.imwrite("binary.png", binary_img)
-cv2.imwrite("binary.bmp", binary_img)
+# Step 2: Save binary image in different formats
+cv2.imwrite("output.jpg", binary_img)
+cv2.imwrite("output.png", binary_img)
+cv2.imwrite("output.bmp", binary_img)
 
-print("Binary image sizes:")
-for filename in ["binary.jpg", "binary.png", "binary.bmp"]:
-    size_kb = os.path.getsize(filename) / 1024
+# Step 3: Check file sizes
+for filename in ["output.jpg", "output.png", "output.bmp"]:
+    size_bytes = os.path.getsize(filename)
+    size_kb = size_bytes / 1024
     print(f"{filename}: {size_kb:.2f} KB")
-
-"""
-Binary image sizes:
-binary.jpg: 1.89 KB
-binary.png: 0.68 KB
-binary.bmp: 40.12 KB
-"""

@@ -2,18 +2,26 @@ import cv2
 import numpy as np
 import os
 
-# Simulated indexed color (palette of 4 colors)
-indexed_img = np.zeros((200, 200), dtype=np.uint8)
-indexed_img[:100, :100] = 50    # gray
-indexed_img[100:, :100] = 100   # lighter gray
-indexed_img[:100, 100:] = 150   # darker gray
-indexed_img[100:, 100:] = 200   # even darker gray
+# Step 1: Create an indexed color image (palette-based 8-bit)
+# We'll generate an image with a gradient using 256 colors
+height, width = 256, 256
+indexed_img = np.zeros((height, width), dtype=np.uint8)
 
-cv2.imwrite("indexed.jpg", indexed_img)
-cv2.imwrite("indexed.png", indexed_img)
-cv2.imwrite("indexed.bmp", indexed_img)
+for y in range(height):
+    for x in range(width):
+        indexed_img[y, x] = (x + y) % 256  # Cycle through 0–255
 
-print("\nIndexed color image sizes:")
-for filename in ["indexed.jpg", "indexed.png", "indexed.bmp"]:
-    size_kb = os.path.getsize(filename) / 1024
+# Step 2: Create a color palette (OpenCV doesn't store palettes directly, so we map them)
+palette = np.array([[i, 255 - i, (i * 2) % 256] for i in range(256)], dtype=np.uint8)
+indexed_color_img = cv2.applyColorMap(indexed_img, cv2.COLORMAP_JET)  # Simulated palette effect
+
+# Step 3: Save in different formats
+cv2.imwrite("indexed_output.jpg", indexed_color_img)
+cv2.imwrite("indexed_output.png", indexed_color_img)
+cv2.imwrite("indexed_output.bmp", indexed_color_img)
+
+# Step 4: Check file sizes
+for filename in ["indexed_output.jpg", "indexed_output.png", "indexed_output.bmp"]:
+    size_bytes = os.path.getsize(filename)
+    size_kb = size_bytes / 1024
     print(f"{filename}: {size_kb:.2f} KB")
