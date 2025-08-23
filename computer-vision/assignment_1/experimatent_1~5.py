@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 y = cv2.imread("cameraman.tif", cv2.IMREAD_GRAYSCALE)
 
 # Add 128 to the image using OpenCV (handles clipping at 255)
-y_added = cv2.subtract(y, 128)
+y_added = cv2.divide(y, 2)
 
 # Show original and new image side by side
 plt.figure(figsize=(10,5))
@@ -16,7 +16,7 @@ plt.imshow(y, cmap="gray")
 plt.axis("off")
 
 plt.subplot(1,2,2)
-plt.title("After imsubtract(y, 128)")
+plt.title("After imdivide(y, 2)")
 plt.imshow(y_added, cmap="gray")
 plt.axis("off")
 plt.show()

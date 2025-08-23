@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  qiskit:
+    build: .
+    container_name: qiskit-sim
+    stdin_open: true   # keep STDIN open for interactive mode
+    tty: true          # allocate a pseudo-TTY
+    volumes:
+      - ./app:/app     # mount local app folder inside container
